@@ -1,0 +1,12 @@
+# PURPOSE: Route Apple Podcasts control-plane domains through the selected proxy.
+# LINK: https://raw.githubusercontent.com/carolcheng520/anyrule-dist/main/rules/apple-podcasts.arrs
+# LAST-UPDATED: 2026-07-28
+# SUGGESTED-ACTION: PROXY
+# RULES: 5
+
+name = Apple Podcasts Proxy
+2, podcasts.apple.com
+2, sf-api-token-service.itunes.apple.com
+2, bookkeeper.itunes.apple.com
+2, search.itunes.apple.com
+2, play.itunes.apple.com

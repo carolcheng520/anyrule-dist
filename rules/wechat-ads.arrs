@@ -1,0 +1,14 @@
+# PURPOSE: Reject routing rules for high-confidence WeChat advertising domains.
+# LINK: https://raw.githubusercontent.com/carolcheng520/anyrule-dist/main/rules/wechat-ads.arrs
+# UPSTREAM: https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Tool/Loon/Plugin/Weixin_Official_Accounts_remove_ads.plugin
+# UPSTREAM-SNAPSHOT: 2024-07-26
+# LAST-UPDATED: 2026-08-20
+# SUGGESTED-ACTION: REJECT
+# RULES: 2
+# NOTE: routing = 2 seeds REJECT on first import only.
+
+name = WeChat Ads Reject
+routing = 2
+
+2, wxsnsdy.wxs.qq.com
+2, wxsnsdythumb.wxs.qq.com
