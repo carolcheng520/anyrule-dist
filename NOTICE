@@ -1,0 +1,35 @@
+AnyRule Distribution Notices
+
+This repository is publicly readable so Anywhere can refresh its subscribed
+rule files without GitHub credentials. It does not grant a repository-wide
+open-source license. Copyright and other rights remain with their respective
+owners.
+
+Apple Podcasts routing rule
+- Locally maintained rule data with no declared upstream source.
+
+WeChat advertising rules
+- Upstream reference:
+  https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Tool/Loon/Plugin/Weixin_Official_Accounts_remove_ads.plugin
+- Reviewed snapshot date: 2024-07-26.
+- Local work narrows routing domains, MITM hostnames, URL patterns, payloads,
+  and native response modes for Anywhere.
+- The referenced GitLab content and a repository-wide license were not
+  anonymously accessible during the 2026-08-21 distribution review.
+
+Tencent Sports MITM rule
+- Upstream reference:
+  https://github.com/Hey-sayiwanna/TencentSports-Surge
+- Reviewed source revision:
+  aad85d3669ababee8d64cd6e245b6d0546250bd0
+- Reviewed source SHA-256 values:
+  TencentSportsAdBlock.sgmodule=4987d3d24b0947366e950cbfe06b5d4aecd61b6c6bd258d9fe8a354c0615da75
+  TencentSportsAdBlock.js=07ce795cb38bbfc77d771c1eefbb70577d49e44d44c071e27b09dd05bad62427
+  TencentSportsFloatBlock.js=e62e26451ab1f2107d054ab9b311fcdbd13edb3ddedadcec6ef130b3cf9c291f
+- The reviewed endpoint inventory and ad signals were reimplemented locally;
+  upstream scripts are not executed by the generator or publisher.
+- GitHub reported no recognized repository license during the 2026-08-21
+  distribution review.
+
+These notices describe provenance and review boundaries. They are not a legal
+opinion and do not expand any upstream license or permission.
