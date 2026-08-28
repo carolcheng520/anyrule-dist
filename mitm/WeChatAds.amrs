@@ -1,17 +1,17 @@
-# PURPOSE: MITM request reject rules for WeChat public account advertising endpoints and ad media.
+# PURPOSE: Conservative cleanup for known WeChat Official Account ad data and exact ad-media paths.
 # LINK: https://raw.githubusercontent.com/carolcheng520/anyrule-dist/main/mitm/WeChatAds.amrs
 # UPSTREAM: https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Tool/Loon/Plugin/Weixin_Official_Accounts_remove_ads.plugin
 # UPSTREAM-SNAPSHOT: 2024-07-26
-# LAST-UPDATED: 2026-08-20
+# LAST-UPDATED: 2026-08-28
 # SUGGESTED-ACTION: Enable MITM
 # RULES: 4
 # COMPANION-FILES: Use with rules/wechat-ads.arrs
-# LOCAL-CHANGES: Narrow wximg/wxsmw handling to known advertising media paths; structured empty response for getappmsgad.
+# LOCAL-CHANGES: Preserve unknown getappmsgad fields; retain exact reserved ad-media paths; pass through promotion, recommendation, monitoring, and unknown endpoints.
 
 name = WeChat Ads
 hostname = mp.weixin.qq.com, wximg.wxs.qq.com, wxsmw.wxs.qq.com
 
-0, 0, ^https://mp\.weixin\.qq\.com/mp/getappmsgad(?:\?|$), 4, eyJhZHZlcnRpc2VtZW50X251bSI6MCwiYWR2ZXJ0aXNlbWVudF9pbmZvIjpbXX0=
-0, 0, ^https://mp\.weixin\.qq\.com/mp/(?:cps_product_info|jsmonitor|masonryfeed|relatedarticle)(?:\?|$), 4, e30=
+1, 5, ^https://mp\.weixin\.qq\.com/mp/getappmsgad(?:\?|$), replace, $.advertisement_num, 0
+1, 5, ^https://mp\.weixin\.qq\.com/mp/getappmsgad(?:\?|$), replace, $.advertisement_info, []
 0, 0, ^https?://wximg\.wxs\.qq\.com/\d+/\d+/snscosdownload/(?:SH|SZ)/reserved/[^?]+(?:\?|$), 3
 0, 0, ^https?://wxsmw\.wxs\.qq\.com/\d+/\d+/snssvpdownload/(?:SH|SZ)/reserved/[^?]+(?:\?|$), 3
