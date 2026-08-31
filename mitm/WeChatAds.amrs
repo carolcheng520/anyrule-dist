@@ -1,12 +1,12 @@
-# PURPOSE: Conservative cleanup for known WeChat Official Account ad data and exact ad-media paths.
+# PURPOSE: Conservative cleanup for known WeChat Official Account ad data, exact ad-media paths, and the subscription-feed ad surface.
 # LINK: https://raw.githubusercontent.com/carolcheng520/anyrule-dist/main/mitm/WeChatAds.amrs
 # UPSTREAM: https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Tool/Loon/Plugin/Weixin_Official_Accounts_remove_ads.plugin
 # UPSTREAM-SNAPSHOT: 2024-07-26
-# LAST-UPDATED: 2026-08-28
+# LAST-UPDATED: 2026-08-31
 # SUGGESTED-ACTION: Enable MITM
-# RULES: 4
+# RULES: 5
 # COMPANION-FILES: Use with rules/wechat-ads.arrs
-# LOCAL-CHANGES: Preserve unknown getappmsgad fields; retain exact reserved ad-media paths; pass through promotion, recommendation, monitoring, and unknown endpoints.
+# LOCAL-CHANGES: Preserve unknown getappmsgad fields; synthesize empty JSON only for masonryfeed after same-iPhone acceptance; retain exact reserved ad-media paths; pass through other promotion, recommendation, monitoring, and unknown endpoints.
 
 name = WeChat Ads
 hostname = mp.weixin.qq.com, wximg.wxs.qq.com, wxsmw.wxs.qq.com
@@ -15,3 +15,4 @@ hostname = mp.weixin.qq.com, wximg.wxs.qq.com, wxsmw.wxs.qq.com
 1, 5, ^https://mp\.weixin\.qq\.com/mp/getappmsgad(?:\?|$), replace, $.advertisement_info, []
 0, 0, ^https?://wximg\.wxs\.qq\.com/\d+/\d+/snscosdownload/(?:SH|SZ)/reserved/[^?]+(?:\?|$), 3
 0, 0, ^https?://wxsmw\.wxs\.qq\.com/\d+/\d+/snssvpdownload/(?:SH|SZ)/reserved/[^?]+(?:\?|$), 3
+0, 100, ^https://mp\.weixin\.qq\.com/mp/masonryfeed(?:\?|$), ZnVuY3Rpb24gcHJvY2VzcyhjdHgpIHsKICBBbnl3aGVyZS5yZXNwb25kKHsKICAgIHN0YXR1czogMjAwLAogICAgaGVhZGVyczogW1siQ29udGVudC1UeXBlIiwgImFwcGxpY2F0aW9uL2pzb247IGNoYXJzZXQ9dXRmLTgiXV0sCiAgICBib2R5OiAie30iCiAgfSk7Cn0=
